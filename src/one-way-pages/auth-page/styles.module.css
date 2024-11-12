@@ -3,15 +3,23 @@
   flex-direction: column;
   align-items: center;
   overflow-y: hidden;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
 }
 
 .header {
+  margin-top: 16px;
   font-size: 24px;
-  margin-bottom: 50%;
+  margin-bottom: 100px;
+  font-weight: 400;
 }
 .optionView {
-  font-weight: 500;
-  font-size: 12px;
+  margin: 14px 0;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .passwordSquares {
@@ -29,6 +37,10 @@
   align-items: center;
   justify-content: center;
   font-size: 24px;
+}
+
+.errorClass {
+  border: 2px solid red;
 }
 
 .numpad {

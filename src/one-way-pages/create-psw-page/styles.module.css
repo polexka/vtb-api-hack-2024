@@ -3,11 +3,20 @@
   flex-direction: column;
   align-items: center;
   overflow-y: hidden;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  /* background: linear-gradient(180deg, rgb(50 49 87) 50%, rgb(43 43 43 / 0%) 100%); */
+  background: linear-gradient(180deg, rgb(255 255 255 / 0) 0%, rgb(50 49 87) 26%, rgb(43 43 43 / 0%) 100%);
 }
 
 .header {
-  font-size: 24px;
-  margin-bottom: 50%;
+  height: 32px;
+  margin-top: 16px;
+  margin-bottom: 100px;
+  font-weight: 400;
 }
 
 .numpadWrapper {
@@ -18,9 +27,11 @@
 }
 
 .optionView {
-  font-size: 15px;
-  font-weight: 500;
-  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 14px 0;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .passwordSquares {
@@ -67,5 +78,5 @@
 }
 
 .bottomText {
-  margin-top: 20px;
+  margin: 30px 0;
 }

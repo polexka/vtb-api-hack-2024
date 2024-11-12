@@ -1,21 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
-import { CancelIcon } from "../../components/icons/cancel";
+import styles from './styles.module.css';
+import { useEffect, useState } from 'react';
+import { CancelIcon } from '../../components/icons/cancel';
 
 interface iAuthPage {
   waypoint?: string;
   spareWaypoint?: string;
+  error?: boolean;
+  authHandler: (code: string) => void;
 }
 
-export const AuthPage = ({ waypoint = "/" }: iAuthPage) => {
-  const moveTo = useNavigate();
-  const [currentInput, setCurrentInput] = useState("");
+export const AuthPage = ({ authHandler, error }: iAuthPage) => {
+  const [currentInput, setCurrentInput] = useState('');
   const timer = 30;
 
   const checkCode = (input: string) => {
-    console.log("input", input);
-    moveTo(waypoint);
+    authHandler(input);
   };
 
   const handleDelete = () => {
@@ -35,18 +34,16 @@ export const AuthPage = ({ waypoint = "/" }: iAuthPage) => {
   }, [currentInput]);
 
   return (
-    <div className={"page one-way-page"}>
+    <div className={'page one-way-page'}>
       <div className={styles.container}>
         <h1 className={styles.header}>Аутентификация</h1>
-        <h2 className={styles.optionView}>
-          Введите 4 цифры кода чтобы продолжить
-        </h2>
+        <h2 className={styles.optionView}>Введите 4 цифры кода чтобы продолжить</h2>
 
         {/* Password squares */}
         <div className={styles.passwordSquares}>
           {[0, 1, 2, 3].map((index) => (
-            <div key={index} className={styles.passwordSquare}>
-              {currentInput[index] ? "•" : ""}
+            <div key={index} className={`${styles.passwordSquare} ${error ? styles.errorClass : ''}`}>
+              {currentInput[index] ? '•' : ''}
             </div>
           ))}
         </div>
@@ -54,26 +51,14 @@ export const AuthPage = ({ waypoint = "/" }: iAuthPage) => {
         {/* Numpad */}
         <div className={styles.numpad}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((number) => (
-            <button
-              key={number}
-              className={styles.numpadButton}
-              onClick={() => handleNumberClick(number)}
-            >
+            <button key={number} className={styles.numpadButton} onClick={() => handleNumberClick(number)}>
               {number}
             </button>
           ))}
-          <button
-            className={styles.numpadButton}
-            style={{ border: "none" }}
-            onClick={handleDelete}
-          >
+          <button className={styles.numpadButton} style={{ border: 'none' }} onClick={handleDelete}>
             <CancelIcon />
           </button>
-          <button
-            key={0}
-            className={styles.numpadButton}
-            onClick={() => handleNumberClick(0)}
-          >
+          <button key={0} className={styles.numpadButton} onClick={() => handleNumberClick(0)}>
             {0}
           </button>
         </div>

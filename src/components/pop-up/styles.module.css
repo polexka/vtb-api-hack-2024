@@ -5,10 +5,40 @@
   justify-content: space-between;
   max-width: 100%;
   min-height: 100%;
+  color: white;
+}
+
+.invite_container {
+  height: 495px;
+  background-image: url('/assets/inviteFriends.png');
+}
+
+.invite_container_desc {
+  font-size: 20px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.title span {
+  color: #02a4f5;
+}
+
+.title_invite {
+  font-size: 24px;
+  text-align: center;
+}
+
+.title_invite span {
+  font-size: 26px;
+  display: block;
+  color: white;
 }
 
 .container img {
-  width: 50%;
+  width: 380px;
 }
 
 .container button {
@@ -22,4 +52,19 @@
 .bottomText {
   margin-top: 20px;
   justify-self: flex-end;
+}
+
+.minibutton {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.minibutton:active {
+  background: none;
+  opacity: 0.8;
 }
